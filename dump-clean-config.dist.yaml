@@ -1,0 +1,7 @@
+clean:
+  - 'SELECT pg_catalog.'
+  - '^SET '
+
+replace:
+  - - 'INSERT INTO public.'
+    - 'INSERT IGNORE INTO '

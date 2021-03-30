@@ -1,0 +1,13 @@
+pgsql:
+  dbname: #####
+  host: #####
+  port: #####
+  user: #####
+  password: #####
+
+mariadb:
+  dbname: #####
+  host: #####
+  port: #####
+  user: #####
+  password: #####
