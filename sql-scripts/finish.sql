@@ -1,0 +1,5 @@
+begin ;
+SET FOREIGN_KEY_CHECKS = 1;
+SET AUTOCOMMIT = 1;
+
+commit;

@@ -1,2 +1,7 @@
 /config.yaml
 /dump-clean-config.yaml
+/dump/clean/
+/dump/origin/
+/.idea/
+/dump/dump.tar.gz
+/venv/

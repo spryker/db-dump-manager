@@ -1,0 +1,3 @@
+asyncpool==1.0
+psycopg2==2.8.6
+PyYAML==5.4.1
