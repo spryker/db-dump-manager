@@ -18,31 +18,31 @@ class DumpFixer:
 
         dump_clean.write('begin;\n')
 
-        i = 1
-        file_count = 1
-        chunk_size = 1000
+        # i = 1
+        # file_count = 1
+        # chunk_size = 1000
 
         for line in dump_origin:
             cleaned_line = self.__clean_up__(line)
             cleaned_line = self.__replace__(cleaned_line)
 
-            if i == chunk_size:
-                dump_clean.write('commit;\n')
-                dump_clean.close()
-
-                next_dump_clean_file_path = '{}/{}'.format(self.__dump_clean_directory_path__, '{}_{}'.format(
-                    file_count,
-                    file_name
-                ))
-
-                dump_clean = open(next_dump_clean_file_path, "w+")
-                dump_clean.write('begin;\n')
-
-                i = 1
-                file_count += 1
+            # if i == chunk_size:
+            #     dump_clean.write('commit;\n')
+            #     dump_clean.close()
+            #
+            #     next_dump_clean_file_path = '{}/{}'.format(self.__dump_clean_directory_path__, '{}_{}'.format(
+            #         file_count,
+            #         file_name
+            #     ))
+            #
+            #     dump_clean = open(next_dump_clean_file_path, "w+")
+            #     dump_clean.write('begin;\n')
+            #
+            #     i = 1
+            #     file_count += 1
 
             dump_clean.write(cleaned_line)
-            i += 1
+            # i += 1
 
         dump_clean.write('commit;\n')
         dump_origin.close()

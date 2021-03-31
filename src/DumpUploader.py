@@ -20,4 +20,4 @@ class DumpUploader:
             self.config.get_mariadb_config().get('password'),
         )
 
-        os.system(command + ' > maria_output.log 2>&1')
+        os.system(command)
