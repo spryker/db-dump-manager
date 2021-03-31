@@ -1,4 +1,5 @@
 import os
+import time
 
 from src.Configurator import Configurator
 
@@ -21,3 +22,4 @@ class DumpUploader:
         )
 
         os.system(command)
+        time.sleep(1)
