@@ -5,3 +5,84 @@ clean:
 replace:
   - - 'INSERT INTO public.'
     - 'INSERT IGNORE INTO '
+
+  - - 'id_category_node_page_search, fk_category_node, structured_data, data, locale, key, created_at, updated_at'
+    - 'id_category_node_page_search, fk_category_node, structured_data, data, locale, `key`, created_at, updated_at'
+
+  - - 'id_availability_storage, fk_product_abstract, fk_availability_abstract, data, store, key, created_at, updated_at'
+    - 'id_availability_storage, fk_product_abstract, fk_availability_abstract, data, store, `key`, created_at, updated_at'
+
+  - - 'id_glossary_key, is_active, key'
+    - 'id_glossary_key, is_active, `key`'
+
+  - - 'id_cms_slot_block, fk_cms_block, fk_cms_slot, fk_cms_slot_template, conditions, "position"'
+    - 'id_cms_slot_block, fk_cms_block, fk_cms_slot, fk_cms_slot_template, conditions, `position`'
+
+  - - 'id_cms_slot_storage, cms_slot_key, data, key'
+    - 'id_cms_slot_storage, cms_slot_key, data, `key`'
+
+  - - 'id_navigation_node, fk_navigation, fk_parent_navigation_node, is_active, node_key, node_type, "position", valid_from, valid_to'
+    - 'id_navigation_node, fk_navigation, fk_parent_navigation_node, is_active, node_key, node_type, `position`, valid_from, valid_to'
+
+  - - 'fk_product_abstract, fk_product_group, "position"'
+    - 'fk_product_abstract, fk_product_group, `position`'
+
+  - - 'id_product_abstract_set, fk_product_abstract, fk_product_set, "position"'
+    - 'id_product_abstract_set, fk_product_abstract, fk_product_set, `position`'
+
+  - - 'id_product_attribute_key, is_super, key'
+    - 'id_product_attribute_key, is_super, `key`'
+
+  - - 'id_product_relation_product_abstract, fk_product_abstract, fk_product_relation, "order", created_at, updated_at'
+    - 'id_product_relation_product_abstract, fk_product_abstract, fk_product_relation, `order`, created_at, updated_at'
+
+  - - 'id_product_search_attribute, fk_product_attribute_key, filter_type, "position", synced'
+    - 'id_product_search_attribute, fk_product_attribute_key, filter_type, `position`, synced'
+
+  - - 'id_sales_return_reason, glossary_key_reason, key'
+    - 'id_sales_return_reason, glossary_key_reason, `key`'
+
+  - - 'id_category_node_storage, fk_category_node, data, locale, key, created_at, updated_at'
+    - 'id_category_node_storage, fk_category_node, data, locale, `key`, created_at, updated_at'
+
+  - - 'id_cms_block, fk_template, is_active, key, name, valid_from, valid_to'
+    - 'id_cms_block, fk_template, is_active, `key`, name, valid_from, valid_to'
+
+  - - 'id_cms_block_storage, fk_cms_block, name, cms_block_key, data, store, locale, key, created_at, updated_at'
+    - 'id_cms_block_storage, fk_cms_block, name, cms_block_key, data, store, locale, `key`, created_at, updated_at'
+
+  - - 'id_category_tree_storage, data, locale, key, created_at, updated_at'
+    - 'id_category_tree_storage, data, locale, `key`, created_at, updated_at'
+
+  - - 'id_cms_page_search, fk_cms_page, structured_data, data, store, locale, key, created_at, updated_at'
+    - 'id_cms_page_search, fk_cms_page, structured_data, data, store, locale, `key`, created_at, updated_at'
+
+  - - 'id_cms_page_storage, fk_cms_page, data, store, locale, key, created_at, updated_at'
+    - 'id_cms_page_storage, fk_cms_page, data, store, locale, `key`, created_at, updated_at'
+
+  - - 'id_cms_slot, content_provider_type, description, is_active, key, name'
+    - 'id_cms_slot, content_provider_type, description, is_active, `key`, name'
+
+  - - 'id_cms_slot_block_storage, fk_cms_slot, fk_cms_slot_template, data, key, slot_template_key, created_at, updated_at'
+    - 'id_cms_slot_block_storage, fk_cms_slot, fk_cms_slot_template, data, `key`, slot_template_key, created_at, updated_at'
+
+  - - 'id_glossary_storage, fk_glossary_key, data, glossary_key, key, locale, created_at, updated_at'
+    - 'id_glossary_storage, fk_glossary_key, data, glossary_key, `key`, locale, created_at, updated_at'
+
+  - - 'id_product_label, front_end_reference, is_active, is_dynamic, is_exclusive, is_published, name, "position", valid_from, valid_to, created_at, updated_at'
+    - 'id_product_label, front_end_reference, is_active, is_dynamic, is_exclusive, is_published, name, `position`, valid_from, valid_to, created_at, updated_at'
+
+  - - ', conversion, is_default, is_displayed, key, "precision", '
+    - ', conversion, is_default, is_displayed, key, `precision`, '
+
+  - - ', key, '
+    - ', `key`, '
+
+  - - ', "position", conditions'
+    - ', `position`, conditions'
+
+  - - ', "position", synced'
+    - ', `position`, synced'
+
+  - - 'id_oms_transition_log, fk_oms_order_process, fk_sales_order, fk_sales_order_item, command, condition, error_message, event, hostname, is_error, locked, params, path, quantity, source_state, target_state, created_at'
+    - '`id_oms_transition_log`, `fk_oms_order_process`, `fk_sales_order`, `fk_sales_order_item`, `command`, `condition`, `error_message`, `event`, `hostname`, `is_error`, `locked`, `params`, `path`, `quantity`, `source_state`, `target_state`, `created_at`'

@@ -28,7 +28,7 @@ def run_pg_dump_process(config, table_name):
     file_name = file_name_template.format(dump_directory_path, table_name)
 
     timer = Timer()
-    os.system(command_template.format(table_name, file_name) + ' > /dev/null 2>&1')
+    os.system(command_template.format(table_name, file_name))
     timer.stop()
 
     return "Table: {} was dumped - {} seconds.".format(table_name, timer.get_time_in_seconds())
