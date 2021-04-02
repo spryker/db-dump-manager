@@ -11,3 +11,10 @@ mariadb:
   port: #####
   user: #####
   password: #####
+
+dump: { tables | file }
+clean: { tables | file | chunk }
+
+scripts:
+  global: { true | false }
+  session: { true | false }

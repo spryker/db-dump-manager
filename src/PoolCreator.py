@@ -10,5 +10,5 @@ class PoolCreator:
 
     def create_pool_iterator(self, func_name, args):
         func = partial(func_name, self.config)
-        # todo: investigate about lock
+
         return Pool(self.max_processes).imap_unordered(func, args)
