@@ -1,3 +1,4 @@
+import logging
 from os import listdir
 from progress.bar import Bar
 from src.Configurator.Configurator import Configurator
@@ -24,6 +25,11 @@ def run_finish_scripts(config: Configurator):
 
 def start_upload_pool(config: Configurator):
     timer = Timer()
+    # todo: refactoring
+    logger = logging.getLogger('uploader_script')
+    handler = logging.FileHandler('logs/upload.log')
+    handler.setLevel(logging.WARNING)
+    logger.addHandler(handler)
 
     # todo: config
     dump_clean_path = 'dump/clean'
@@ -37,18 +43,25 @@ def start_upload_pool(config: Configurator):
     bar = Bar('Processing', max=max_table_len)
     for x in run_process_iterator:
         if config.get_verbose():
-            print("[{}/{}] {}".format(iterator, max_table_len, x))
+            msg = "[{}/{}] {}".format(iterator, max_table_len, x)
+            logger.warning(msg)
+            print(msg)
+
             iterator += 1
         else:
             bar.next()
 
     run_finish_scripts(config)
     timer.stop()
-    print("Upload process ran in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
+
+    finish_msg = "Upload process ran in about {} seconds.".format(timer.get_time_in_seconds())
+    logger.warning(finish_msg)
+    print(finish_msg, flush=True)
 
 
 def run_upload_process(config, file_path):
     timer = Timer()
+    # todo: exception
     DumpUploader(config).run(file_path)
     timer.stop()
 
