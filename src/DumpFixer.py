@@ -25,7 +25,6 @@ class DumpFixer:
             if not cleaned_line.strip():
                 continue
 
-            cleaned_line = self.__json_values_unicode_build__(cleaned_line)
             dump_clean.write(cleaned_line)
 
         dump_clean.write('commit;\n')
@@ -50,27 +49,3 @@ class DumpFixer:
             line = line.replace(replace_list[0], replace_list[1])
 
         return line
-
-    def __json_values_unicode_build__(self, cleaned_line):
-        # todo: refactoring
-        values_start_index = cleaned_line.find('VALUES (')
-        if values_start_index == -1:
-            return cleaned_line
-
-        values_string = cleaned_line[values_start_index:]
-
-        json_index_start = values_string.find('\'{')
-        if json_index_start == -1:
-            return cleaned_line
-
-        json_index_stop = values_string.rfind('}\'') + 2
-        json_str = values_string[json_index_start:json_index_stop]
-
-        json_str = json_str.lstrip('\'')
-        json_str = json_str.rstrip('\'')
-        json_str = json_str.replace('\\', '\\\\')
-
-        json_str = '\'{}\''.format(json_str)
-        full_string = values_string[:json_index_start] + json_str + values_string[json_index_stop:]
-
-        return cleaned_line[:values_start_index] + full_string
