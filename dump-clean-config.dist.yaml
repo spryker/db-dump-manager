@@ -86,3 +86,9 @@ replace:
 
   - - 'id_oms_transition_log, fk_oms_order_process, fk_sales_order, fk_sales_order_item, command, condition, error_message, event, hostname, is_error, locked, params, path, quantity, source_state, target_state, created_at'
     - '`id_oms_transition_log`, `fk_oms_order_process`, `fk_sales_order`, `fk_sales_order_item`, `command`, `condition`, `error_message`, `event`, `hostname`, `is_error`, `locked`, `params`, `path`, `quantity`, `source_state`, `target_state`, `created_at`'
+
+  - - '\u00'
+    - '\\u00'
+
+  - - '\u20'
+    - '\\u20'
