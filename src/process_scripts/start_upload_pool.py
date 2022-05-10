@@ -54,7 +54,7 @@ def start_upload_pool(config: Configurator):
     run_finish_scripts(config)
     timer.stop()
 
-    finish_msg = "Upload process ran in about {} seconds.".format(timer.get_time_in_seconds())
+    finish_msg = "Upload process run in about {} seconds.".format(timer.get_time_in_seconds())
     logger.warning(finish_msg)
     print(finish_msg, flush=True)
 

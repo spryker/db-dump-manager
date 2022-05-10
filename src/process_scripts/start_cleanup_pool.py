@@ -32,7 +32,7 @@ def start_cleanup_pool(config: Configurator):
                 bar.next()
 
         timer.stop()
-        print("Cleanup process ran in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
+        print("Cleanup process run in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
 
     if clean_mode is CleanState.file:
         dump_clean_file_path = '{}/{}'.format('dump/clean', 'full-dump.sql')

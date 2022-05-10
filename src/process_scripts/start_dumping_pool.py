@@ -37,7 +37,7 @@ def start_dumping_pool(config: Configurator):
     bar.finish()
     timer.stop()
 
-    print("Dumping process ran in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
+    print("Dumping process run in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
 
 
 def get_table_name_list(config):

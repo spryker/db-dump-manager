@@ -15,7 +15,7 @@ def start_full_process(config):
     start_upload_pool(config)
 
     timer.stop()
-    print("Full process ran in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
+    print("Full process run in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
 
 
 def start_partial_process(args, config):
@@ -40,7 +40,7 @@ def run(args):
         start_partial_process(args, config)
 
     timer.stop()
-    print("Full process ran in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
+    print("Full process run in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
 
 
 if __name__ == "__main__":
