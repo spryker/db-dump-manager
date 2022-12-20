@@ -12,6 +12,7 @@ mariadb:
   user: #####
   password: #####
 
+rows_per_insert: {1000 | 10000}
 dump: { tables | file }
 clean: { tables | file | chunk }
 

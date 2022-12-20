@@ -21,6 +21,9 @@ class Configurator:
     def get_pgsql_config(self):
         return self.app_config.get('pgsql')
 
+    def get_rows_per_insert(self):
+        return self.app_config.get('rows_per_insert')
+
     def get_mariadb_config(self):
         return self.app_config.get('mariadb')
 

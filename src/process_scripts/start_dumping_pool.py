@@ -55,21 +55,31 @@ def create_dump_pool_by_file(config):
 
 def run_pg_dump_process_by_file(config: Configurator, pool_arg):
     dump_directory_path = './dump/origin'
-    command_template = "PGPASSWORD={} pg_dump -h localhost -p 15432 -d avag -U avag " \
+    command_template = "PGPASSWORD={} pg_dump -h {} -p {} -d {} -U {} " \
                        "--data-only " \
                        "--no-owner " \
                        "--no-acl " \
                        "--attribute-inserts " \
                        "--disable-dollar-quoting " \
                        "--no-tablespaces " \
+                       "--rows-per-insert={} " \
                        "-f {}"
 
     file_name_template = "{}/{}.sql"
-
     file_name = file_name_template.format(dump_directory_path, 'full-dump')
 
+    command = command_template.format(
+        config.get_pgsql_config().get('password'),
+        config.get_pgsql_config().get('host'),
+        config.get_pgsql_config().get('port'),
+        config.get_pgsql_config().get('dbname'),
+        config.get_pgsql_config().get('user'),
+        config.get_rows_per_insert(),
+        file_name
+    )
+
     timer = Timer()
-    os.system(command_template.format(config.get_pgsql_config().get('password'), file_name))
+    os.system(command)
     timer.stop()
 
     return "Full dump was dumped - {} seconds.".format(timer.get_time_in_seconds())
@@ -77,21 +87,32 @@ def run_pg_dump_process_by_file(config: Configurator, pool_arg):
 
 def run_pg_dump_process_by_tables(config, table_name):
     dump_directory_path = './dump/origin'
-    command_template = "PGPASSWORD={} pg_dump -h localhost -p 15432 -d avag -U avag " \
+    command_template = "PGPASSWORD={} pg_dump -h {} -p {} -d {} -U {} " \
                        "--data-only " \
                        "--no-owner " \
                        "--no-acl " \
                        "--attribute-inserts " \
                        "--disable-dollar-quoting " \
                        "--no-tablespaces " \
+                       "--rows-per-insert={} " \
                        "--table {} -f {}"
 
     file_name_template = "{}/{}.sql"
-
     file_name = file_name_template.format(dump_directory_path, table_name)
 
+    command = command_template.format(
+            config.get_pgsql_config().get('password'),
+            config.get_pgsql_config().get('host'),
+            config.get_pgsql_config().get('port'),
+            config.get_pgsql_config().get('dbname'),
+            config.get_pgsql_config().get('user'),
+            config.get_rows_per_insert(),
+            table_name,
+            file_name
+        )
+
     timer = Timer()
-    os.system(command_template.format(config.get_pgsql_config().get('password'), table_name, file_name))
+    os.system(command)
     timer.stop()
 
     return "Table: {} was dumped - {} seconds.".format(table_name, timer.get_time_in_seconds())
