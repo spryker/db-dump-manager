@@ -3,15 +3,13 @@ from re import search
 
 
 class DumpFixer:
-    # todo: config
-    __dump_clean_directory_path__ = 'dump/clean'
 
     def __init__(self, config):
         self.config = config
 
     def run(self, file_path):
         file_name = Path(file_path).name
-        dump_clean_file_path = '{}/{}'.format(self.__dump_clean_directory_path__, file_name)
+        dump_clean_file_path = '{}/{}'.format(self.config.get_clean_directory_path(), file_name)
 
         dump_origin = open(file_path, "rt")
         dump_clean = open(dump_clean_file_path, "w+")

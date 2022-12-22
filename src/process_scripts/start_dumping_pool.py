@@ -54,7 +54,7 @@ def create_dump_pool_by_file(config):
 
 
 def run_pg_dump_process_by_file(config: Configurator, pool_arg):
-    dump_directory_path = './dump/origin'
+    dump_directory_path = config.get_dump_directory_path()
     command_template = "PGPASSWORD={} pg_dump -h {} -p {} -d {} -U {} " \
                        "--data-only " \
                        "--no-owner " \
@@ -86,7 +86,7 @@ def run_pg_dump_process_by_file(config: Configurator, pool_arg):
 
 
 def run_pg_dump_process_by_tables(config, table_name):
-    dump_directory_path = './dump/origin'
+    dump_directory_path = config.get_dump_directory_path()
     command_template = "PGPASSWORD={} pg_dump -h {} -p {} -d {} -U {} " \
                        "--data-only " \
                        "--no-owner " \

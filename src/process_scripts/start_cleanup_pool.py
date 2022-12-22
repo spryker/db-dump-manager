@@ -12,9 +12,8 @@ from src.Timer import Timer
 def start_cleanup_pool(config: Configurator):
     timer = Timer()
 
-    # todo: config
-    dump_origin_path = './dump/origin'
-    file_name_list = ['{}/{}'.format(dump_origin_path, f) for f in listdir(dump_origin_path) if f != '.gitkeep']
+    dump_directory_path = config.get_dump_directory_path()
+    file_name_list = ['{}/{}'.format(dump_directory_path, f) for f in listdir(dump_directory_path) if f != '.gitkeep']
     iteration_length = len(file_name_list)
 
     clean_mode = config.get_clean_mode()
@@ -35,7 +34,7 @@ def start_cleanup_pool(config: Configurator):
         print("Cleanup process run in about {} seconds.".format(timer.get_time_in_seconds()), flush=True)
 
     if clean_mode is CleanState.file:
-        dump_clean_file_path = '{}/{}'.format('dump/clean', 'full-dump.sql')
+        dump_clean_file_path = '{}/{}'.format(config.get_clean_directory_path(), 'full-dump.sql')
         dump_clean = open(dump_clean_file_path, "w+")
         dump_clean.write('begin;\n')
 
