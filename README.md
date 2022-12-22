@@ -12,6 +12,8 @@ You might have a problem with this installation, it requires database packages, 
  - `config.dist.yaml` - main config. You should define database settings and the next configs:
 ```yaml
 rows_per_insert: 1000
+dump_directory_path: './dump/origin'
+clean_directory_path: './dump/clean'
 dump: tables
 clean: tables
 
@@ -19,7 +21,12 @@ scripts:
   global: true
   session: false
 ```
-The `rows_per_insert` configuration stands for the number of rows per one `INSERT` statement used for bulk insert.
+ - The `rows_per_insert` configuration stands for the number of rows per one `INSERT` statement used for bulk insert.
+ - The `dump_directory_path` configuration defines the folder where the tool stores the PostgreSQL database dump created by the `dump` command.
+ - The `clean_directory_path` configuration defines the folder where the tool stores the database dump converted by the `clean` command to the MariaDB compatible one.
+ - The `dump` configuration defines how the dump will be created: `tables` means that a separate file will be created for each table and `file` means that the whole dump will be in one file.
+ - The `clean` configuration defines how the clean process will work: `tables` means that the system will search for separate `files` for data for each table and run the process file by file, and file means that the system will run the clean process only on the `full-dump.sql` file.
+ - The `scripts` section: if the `global` value is `true`, the system will execute the content of `./sql-scripts/start/global.sql` and `./sql-scripts/finish/global.sql`, and if the `session` value is `true`, the system will execute the content of  `./sql-scripts/start/session.sql` and `./sql-scripts/finish/session.sql`.
 # Run
 Just run `python3 main.py`
 
