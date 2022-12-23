@@ -12,6 +12,9 @@ mariadb:
   user: #####
   password: #####
 
+rows_per_insert: {1000 | 10000}
+dump_directory_path: './dump/origin'
+clean_directory_path: './dump/clean'
 dump: { tables | file }
 clean: { tables | file | chunk }
 

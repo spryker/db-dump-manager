@@ -31,9 +31,8 @@ def start_upload_pool(config: Configurator):
     handler.setLevel(logging.WARNING)
     logger.addHandler(handler)
 
-    # todo: config
-    dump_clean_path = 'dump/clean'
-    file_name_list = ['{}/{}'.format(dump_clean_path, f) for f in listdir(dump_clean_path)]
+    clean_directory_path = config.get_clean_directory_path()
+    file_name_list = ['{}/{}'.format(clean_directory_path, f) for f in listdir(clean_directory_path)]
     run_start_scripts(config)
 
     run_process_iterator = PoolCreator(config).create_pool_iterator(run_upload_process, file_name_list)

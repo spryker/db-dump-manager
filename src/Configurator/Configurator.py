@@ -21,11 +21,17 @@ class Configurator:
     def get_pgsql_config(self):
         return self.app_config.get('pgsql')
 
+    def get_rows_per_insert(self):
+        return self.app_config.get('rows_per_insert')
+
     def get_mariadb_config(self):
         return self.app_config.get('mariadb')
 
-    def get_dump_directory(self):
+    def get_dump_directory_path(self):
         return self.app_config.get('dump_directory_path')
+
+    def get_clean_directory_path(self):
+        return self.app_config.get('clean_directory_path')
 
     def get_clean_config(self):
         return self.clean_config.get('clean')
