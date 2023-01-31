@@ -7,6 +7,11 @@ This manager may help you to convert data from postgresql to MariaDB
 3. install dependencies `python3 -m pip install -r requirements.txt`
 You might have a problem with this installation, it requires database packages, so you will need to install PostgreSQL and MariaDB on your local machine since the tool uses the `pg_dump` and the `mysql` console commands. The `psycopg2` Python library also requires the OpenSSL library to be installed on your environment.
 
+# Install using Dockerfile
+1. Build an image `docker build . --no-cache -t db-dump-manager:latest`.
+2. Run docker container `docker run -v {/path/to/db-dump-manager}:/db-dump-manager -it db-dump-manager bash`.
+The only issues with Dockerfile installation that it's not possible to connect to another docker container DB on your local machine.
+
 # Configuration
  - `dump-clean-config.dist.yaml` - prepared config for everything that should be replaced during converting. You can extend it with your own parameters.
  - `config.dist.yaml` - main config. You should define database settings and the next configs:
