@@ -78,6 +78,18 @@ replace:
   - - ', key, '
     - ', `key`, '
 
+  - - ', key)'
+    - ', `key`)'
+
+  - - ', condition,'
+    - ', `condition`,'
+
+  - - ', order,'
+    - ', `order`,'
+
+  - - ', position,'
+    - ', `position`,'
+
   - - ', "position", conditions'
     - ', `position`, conditions'
 
